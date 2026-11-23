@@ -483,7 +483,7 @@
             <div class="card-body">
               <p>Белые, графитовые и древесные кухни: угловые, прямые, с островом, в потолок и с интегрированной подсветкой.</p>
               <div class="card-foot">
-                <span class="card-price">от 95 000 ₽</span>
+                <span class="card-price">от 200 000 ₽</span>
                 <a href="#quiz" class="btn btn-outline btn-sm">Рассчитать</a>
               </div>
             </div>
@@ -546,10 +546,10 @@
             <div class="quiz-step">
               <span class="quiz-label">1. Какая мебель вам нужна?</span>
               <div class="pill-group" id="typeGroup">
-                <button type="button" class="pill active" data-base="32000">Кухня на заказ</button>
-                <button type="button" class="pill" data-base="22000">Шкаф-купе / распашной</button>
-                <button type="button" class="pill" data-base="24000">Гардеробная</button>
-                <button type="button" class="pill" data-base="18000">Прихожая / рабочая зона</button>
+                <button type="button" class="pill active" data-base="68000">Кухня на заказ</button>
+                <button type="button" class="pill" data-base="38000">Шкаф-купе / распашной</button>
+                <button type="button" class="pill" data-base="45000">Гардеробная комната</button>
+                <button type="button" class="pill" data-base="35000">Стенка в зал / прихожая</button>
               </div>
             </div>
 
@@ -562,11 +562,12 @@
             </div>
 
             <div class="quiz-step">
-              <span class="quiz-label">3. Класс материалов и фурнитуры</span>
+              <span class="quiz-label">3. Материал фасадов</span>
               <div class="pill-group" id="tierGroup">
-                <button type="button" class="pill" data-mult="0.85">Стандарт (ЛДСП Egger)</button>
-                <button type="button" class="pill active" data-mult="1">Комфорт (МДФ / пластик)</button>
-                <button type="button" class="pill" data-mult="1.35">Премиум (Эмаль, подсветка, Blum)</button>
+                <button type="button" class="pill" data-mult="0.85">ДСП / МДФ плёнка</button>
+                <button type="button" class="pill active" data-mult="1">МДФ пластик</button>
+                <button type="button" class="pill" data-mult="1.35">Эмаль (крашеные)</button>
+                <button type="button" class="pill" data-mult="1.55">Шпон</button>
               </div>
             </div>
 
@@ -643,10 +644,10 @@
   </footer>
 
   <script>
-    let baseRate = 32000;
+    let baseRate = 68000;
     let typeName = 'Кухня на заказ';
     let tierMult = 1;
-    let tierName = 'Комфорт';
+    let tierName = 'МДФ пластик';
     let cityName = 'Ростов-на-Дону и область';
 
     const lengthRange = document.getElementById('lengthRange');
