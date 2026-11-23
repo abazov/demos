@@ -59,17 +59,18 @@
     }
     .brand { display: flex; align-items: center; gap: 12px; }
     .brand-mark {
-      width: 46px;
-      height: 46px;
+      width: 52px;
+      height: 52px;
+      flex-shrink: 0;
       border-radius: 50%;
       background: var(--dark-wood);
       border: 2px solid var(--accent);
       display: grid;
       place-items: center;
       font-weight: 700;
-      font-size: 0.72rem;
+      font-size: 0.62rem;
       color: #fff;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.03em;
     }
     .brand-text strong {
       display: block;
@@ -273,7 +274,7 @@
       padding-top: 14px;
       border-top: 1px solid var(--border);
     }
-    .card-price { font-weight: 700; font-size: 1rem; color: var(--dark-wood); }
+    .card-price { font-weight: 700; font-size: 1rem; color: var(--dark-wood); white-space: nowrap; }
 
     /* Quiz */
     .quiz-section { background: var(--surface-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
@@ -442,7 +443,7 @@
             </div>
             <div class="stat">
               <strong>9 242+</strong>
-              <span>подписчиков и отзывов (4.4 ★)</span>
+              <span>подписчиков и отзывов <span style="white-space: nowrap;">(4.4&nbsp;★)</span></span>
             </div>
             <div class="stat">
               <strong>1 минута</strong>
