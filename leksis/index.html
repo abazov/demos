@@ -230,34 +230,49 @@
     }
     .card:hover { transform: translateY(-3px); border-color: var(--accent); }
     .card-visual {
-      height: 150px;
-      padding: 18px;
+      position: relative;
+      height: 220px;
+      padding: 16px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background: linear-gradient(135deg, #efe7dc 0%, #e4d7c6 100%);
+      background-color: #e4d7c6;
+      background-size: cover;
+      background-position: center;
       border-bottom: 1px solid var(--border);
     }
-    .card-visual.kitchen { background: linear-gradient(135deg, #f3ece2 0%, #dfd1bf 100%); }
-    .card-visual.wardrobe { background: linear-gradient(135deg, #ebe6df 0%, #d8cfc3 100%); }
-    .card-visual.hall { background: linear-gradient(135deg, #f2ede6 0%, #e2d8ca 100%); }
-    .card-visual.kids { background: linear-gradient(135deg, #ece8e0 0%, #d7d2c6 100%); }
+    .card-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(20, 17, 15, 0.08) 0%, rgba(20, 17, 15, 0.72) 100%);
+      pointer-events: none;
+    }
+    .card-visual > * {
+      position: relative;
+      z-index: 1;
+    }
+    .card-visual.kitchen { background-image: url('images/kitchen.jpg'); }
+    .card-visual.wardrobe { background-image: url('images/wardrobe.jpg'); }
+    .card-visual.hall { background-image: url('images/hallway.jpg'); }
+    .card-visual.kids { background-image: url('images/kids.jpg'); }
 
     .card-tag {
       display: inline-block;
       font-size: 0.74rem;
       font-weight: 600;
       color: var(--dark-wood);
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.92);
       padding: 4px 11px;
       border-radius: 999px;
       width: fit-content;
     }
     .card-visual-title {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--dark-wood);
+      color: #ffffff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
     .card-body {
       padding: 22px;
