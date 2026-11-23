@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ЛЕКСИС — Студия мебели на заказ с 2015 года | Кухни, шкафы, гардеробные</title>
+  <meta name="description" content="Студия мебели ЛЕКСИС: кухни на заказ, шкафы-купе, гардеробные и прихожие с 2015 года. Ростов-на-Дону, Краснодар, ЛНР, ДНР. Бесплатная доставка и расчёт стоимости." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #faf8f5;
+      --surface: #ffffff;
+      --surface-warm: #f3ede4;
+      --border: #e7dfd4;
+      --text: #1e2024;
+      --muted: #686b72;
+      --accent: #c46522;
+      --accent-hover: #a85217;
+      --accent-soft: #f9ebe0;
+      --dark-wood: #2a2420;
+      --radius: 18px;
+      --shadow: 0 12px 36px rgba(42, 36, 32, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+
+    h1, h2, .serif {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      letter-spacing: -0.01em;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+      gap: 16px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--dark-wood);
+      border: 2px solid var(--accent);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.72rem;
+      color: #fff;
+      letter-spacing: 0.06em;
+    }
+    .brand-text strong {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .brand-text span { font-size: 0.76rem; color: var(--muted); }
+    .nav-links { display: flex; gap: 26px; font-size: 0.92rem; color: var(--muted); font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta { display: flex; align-items: center; gap: 14px; }
+    .phone-link { font-weight: 600; font-size: 0.92rem; color: var(--text); white-space: nowrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(196, 101, 34, 0.22);
+    }
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-sm { padding: 9px 18px; font-size: 0.84rem; }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 56px;
+      background: linear-gradient(180deg, #f5efe6 0%, var(--bg) 100%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(2.35rem, 4.5vw, 3.6rem);
+      line-height: 1.06;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: var(--dark-wood);
+    }
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 1.04rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+      max-width: 550px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+    .stat strong { display: block; font-size: 1.25rem; color: var(--dark-wood); }
+    .stat span { font-size: 0.8rem; color: var(--muted); }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+    .hero-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .rating-pill {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .hero-card h3 { font-size: 1.25rem; margin-bottom: 6px; color: var(--dark-wood); }
+    .hero-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 18px; }
+    .perks { list-style: none; display: grid; gap: 10px; margin-bottom: 22px; }
+    .perks li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 0.88rem;
+    }
+    .perks li strong { color: var(--accent); }
+
+    /* Sections */
+    section { padding: 68px 0; }
+    .section-head { margin-bottom: 34px; }
+    .section-head h2 {
+      font-size: clamp(2rem, 3.4vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--dark-wood);
+      margin-bottom: 10px;
+    }
+    .section-head p { color: var(--muted); max-width: 640px; font-size: 0.98rem; }
+
+    /* Catalog */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 22px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .card-visual {
+      height: 150px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, #efe7dc 0%, #e4d7c6 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .card-visual.kitchen { background: linear-gradient(135deg, #f3ece2 0%, #dfd1bf 100%); }
+    .card-visual.wardrobe { background: linear-gradient(135deg, #ebe6df 0%, #d8cfc3 100%); }
+    .card-visual.hall { background: linear-gradient(135deg, #f2ede6 0%, #e2d8ca 100%); }
+    .card-visual.kids { background: linear-gradient(135deg, #ece8e0 0%, #d7d2c6 100%); }
+
+    .card-tag {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: var(--dark-wood);
+      background: rgba(255, 255, 255, 0.85);
+      padding: 4px 11px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .card-visual-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 700;
+      color: var(--dark-wood);
+    }
+    .card-body {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+    .card-body p { font-size: 0.9rem; color: var(--muted); margin-bottom: 18px; }
+    .card-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+    .card-price { font-weight: 700; font-size: 1rem; color: var(--dark-wood); }
+
+    /* Quiz */
+    .quiz-section { background: var(--surface-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .quiz-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    .quiz-step { margin-bottom: 22px; }
+    .quiz-label { display: block; font-size: 0.9rem; font-weight: 600; margin-bottom: 10px; color: var(--dark-wood); }
+    .pill-group { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill {
+      padding: 10px 15px;
+      border-radius: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .pill.active {
+      background: var(--accent-soft);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .range-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg);
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .range-row input[type="range"] { flex: 1; accent-color: var(--accent); }
+    .range-val { font-weight: 700; color: var(--accent); min-width: 72px; text-align: right; }
+
+    .result-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .est-head { padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+    .est-head span { font-size: 0.84rem; color: var(--muted); display: block; }
+    .est-price { font-size: 1.75rem; font-weight: 800; color: var(--accent); margin-top: 4px; }
+    .est-summary { font-size: 0.84rem; color: var(--muted); margin-top: 6px; }
+
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-field label { font-size: 0.82rem; color: var(--muted); font-weight: 500; }
+    .form-field input {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 0.94rem;
+      outline: none;
+    }
+    .form-field input:focus { border-color: var(--accent); }
+
+    .toast {
+      display: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-size: 0.86rem;
+    }
+
+    /* Contacts */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    .contact-card h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .contact-card strong { display: block; font-size: 1.05rem; margin-bottom: 4px; color: var(--dark-wood); }
+    .contact-card p { font-size: 0.88rem; color: var(--muted); margin-bottom: 10px; }
+    .contact-card a.phone { font-weight: 700; font-size: 1rem; color: var(--text); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: var(--muted);
+      font-size: 0.85rem;
+      background: var(--surface);
+    }
+    .footer-flex { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .quiz-wrap { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero-stats { grid-template-columns: 1fr; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <div class="brand-mark">ЛЕКСИС</div>
+        <div class="brand-text">
+          <strong>Студия мебели «ЛЕКСИС»</strong>
+          <span>С 2015 года • Ростов • Краснодар • ЛНР • ДНР</span>
+        </div>
+      </a>
+      <nav class="nav-links">
+        <a href="#catalog">Каталог работ</a>
+        <a href="#quiz">Калькулятор цены</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="nav-cta">
+        <a href="tel:+79518402038" class="phone-link">+7 (951) 840-20-38</a>
+        <a href="#quiz" class="btn btn-primary btn-sm">Записаться на замер</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">Собственное производство с 2015 года • Бесплатная доставка</div>
+          <h1>Уютные <em>кухни и шкафы</em> точно под ваш интерьер</h1>
+          <p>
+            Проектируем и изготавливаем корпусную мебель без зазоров и переплат за салон:
+            кухни в потолок с подсветкой, встроенные шкафы-купе, гардеробные и прихожие.
+          </p>
+          <div class="hero-actions">
+            <a href="#quiz" class="btn btn-primary">Рассчитать стоимость и получить скидку</a>
+            <a href="https://t.me/LEKSIS_MEBEL" target="_blank" rel="noopener" class="btn btn-outline">Telegram-канал</a>
+            <a href="https://vk.com/club160000574" target="_blank" rel="noopener" class="btn btn-outline">Группа ВКонтакте</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>с 2015 года</strong>
+              <span>производим мебель на заказ</span>
+            </div>
+            <div class="stat">
+              <strong>9 242+</strong>
+              <span>подписчиков и отзывов (4.4 ★)</span>
+            </div>
+            <div class="stat">
+              <strong>1 минута</strong>
+              <span>среднее время ответа</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-top">
+            <h3>Условия студии</h3>
+            <span class="rating-pill">★ 4.4 в ВК</span>
+          </div>
+          <p>Напрямую с руководителем и дизайнером — без посредников и наценок торговых залов.</p>
+          <ul class="perks">
+            <li><span>Доставка по регионам</span><strong>Бесплатно</strong></li>
+            <li><span>3D-проект и консультация</span><strong>Включено</strong></li>
+            <li><span>Работаем ежедневно</span><strong>до 20:00</strong></li>
+            <li><span>Выезд на замер</span><strong>По записи</strong></li>
+          </ul>
+          <a href="#quiz" class="btn btn-primary" style="width: 100%;">Узнать стоимость вашей мебели</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="catalog">
+      <div class="container">
+        <div class="section-head">
+          <h2>Что мы производим</h2>
+          <p>Проекты из портфолио студии — адаптируем под планировку вашей квартиры или дома, подберём фасады и фурнитуру под бюджет.</p>
+        </div>
+        <div class="catalog-grid">
+          <article class="card">
+            <div class="card-visual kitchen">
+              <span class="card-tag">Популярно</span>
+              <span class="card-visual-title">Кухни на заказ</span>
+            </div>
+            <div class="card-body">
+              <p>Белые, графитовые и древесные кухни: угловые, прямые, с островом, в потолок и с интегрированной подсветкой.</p>
+              <div class="card-foot">
+                <span class="card-price">от 95 000 ₽</span>
+                <a href="#quiz" class="btn btn-outline btn-sm">Рассчитать</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-visual wardrobe">
+              <span class="card-tag">В потолок</span>
+              <span class="card-visual-title">Шкафы-купе и распашные</span>
+            </div>
+            <div class="card-body">
+              <p>Встроенные и корпусные шкафы, зеркальные фасады в профиле, антресоли и тихие доводчики без пылевых щелей.</p>
+              <div class="card-foot">
+                <span class="card-price">от 48 000 ₽</span>
+                <a href="#quiz" class="btn btn-outline btn-sm">Рассчитать</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-visual hall">
+              <span class="card-tag">Эргономика</span>
+              <span class="card-visual-title">Прихожие и гардеробные</span>
+            </div>
+            <div class="card-body">
+              <p>Стильные прихожие с мягкой банкеткой и рейками, вместительные гардеробные комнаты под ключ.</p>
+              <div class="card-foot">
+                <span class="card-price">от 42 000 ₽</span>
+                <a href="#quiz" class="btn btn-outline btn-sm">Рассчитать</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-visual kids">
+              <span class="card-tag">Для дома</span>
+              <span class="card-visual-title">Детские и рабочие зоны</span>
+            </div>
+            <div class="card-body">
+              <p>Рабочие столы для школьников у окна, пеналы, открытые полки и системы хранения в едином цвете комнаты.</p>
+              <div class="card-foot">
+                <span class="card-price">от 35 000 ₽</span>
+                <a href="#quiz" class="btn btn-outline btn-sm">Рассчитать</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="quiz" class="quiz-section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Онлайн-калькулятор стоимости</h2>
+          <p>Удобная замена расчёту в соцсетях: выберите параметры — заявка сразу сформируется для дизайнера в Telegram.</p>
+        </div>
+
+        <div class="quiz-wrap">
+          <div>
+            <div class="quiz-step">
+              <span class="quiz-label">1. Какая мебель вам нужна?</span>
+              <div class="pill-group" id="typeGroup">
+                <button type="button" class="pill active" data-base="32000">Кухня на заказ</button>
+                <button type="button" class="pill" data-base="22000">Шкаф-купе / распашной</button>
+                <button type="button" class="pill" data-base="24000">Гардеробная</button>
+                <button type="button" class="pill" data-base="18000">Прихожая / рабочая зона</button>
+              </div>
+            </div>
+
+            <div class="quiz-step">
+              <span class="quiz-label">2. Примерная длина (погонные метры)</span>
+              <div class="range-row">
+                <input type="range" id="lengthRange" min="1.5" max="7" step="0.5" value="3.5" />
+                <span class="range-val" id="lengthVal">3.5 м</span>
+              </div>
+            </div>
+
+            <div class="quiz-step">
+              <span class="quiz-label">3. Класс материалов и фурнитуры</span>
+              <div class="pill-group" id="tierGroup">
+                <button type="button" class="pill" data-mult="0.85">Стандарт (ЛДСП Egger)</button>
+                <button type="button" class="pill active" data-mult="1">Комфорт (МДФ / пластик)</button>
+                <button type="button" class="pill" data-mult="1.35">Премиум (Эмаль, подсветка, Blum)</button>
+              </div>
+            </div>
+
+            <div class="quiz-step" style="margin-bottom: 0;">
+              <span class="quiz-label">4. Город доставки и монтажа</span>
+              <div class="pill-group" id="cityGroup">
+                <button type="button" class="pill active">Ростов-на-Дону и область</button>
+                <button type="button" class="pill">Краснодар</button>
+                <button type="button" class="pill">ЛНР / ДНР</button>
+              </div>
+            </div>
+          </div>
+
+          <form class="result-box" id="quizForm">
+            <div class="est-head">
+              <span>Предварительная оценка проекта:</span>
+              <div class="est-price" id="estPrice">100 000 – 129 000 ₽</div>
+              <div class="est-summary" id="estSummary">Кухня на заказ • 3.5 м • Комфорт • Ростов-на-Дону и область</div>
+            </div>
+
+            <div class="form-field">
+              <label for="leadName">Ваше имя</label>
+              <input id="leadName" type="text" placeholder="Например: Татьяна" required />
+            </div>
+
+            <div class="form-field">
+              <label for="leadPhone">Телефон (WhatsApp / Telegram)</label>
+              <input id="leadPhone" type="tel" placeholder="+7 (900) 000-00-00" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Получить точный расчёт и скидку</button>
+            <div class="toast" id="quizToast"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts">
+      <div class="container">
+        <div class="section-head">
+          <h2>Команда и прямые контакты</h2>
+          <p>Открыты ежедневно до 20:00. Быстро отвечаем в сообщениях — в среднем за 1 минуту.</p>
+        </div>
+        <div class="contacts-grid">
+          <div class="contact-card">
+            <h4>Руководитель студии</h4>
+            <strong>Николай Шевараков</strong>
+            <p>Звоните и назначайте удобное время выезда на замер.</p>
+            <a class="phone" href="tel:+79518402038">+7 (951) 840-20-38</a>
+          </div>
+          <div class="contact-card">
+            <h4>Руководитель отдела продаж</h4>
+            <strong>Юлия Шеваракова</strong>
+            <p>Консультации по проектам, материалам и срокам.</p>
+            <a class="phone" href="tel:+79885352068">+7 (988) 535-20-68</a>
+          </div>
+          <div class="contact-card">
+            <h4>Дизайнер и расчёт стоимости</h4>
+            <strong>Telegram / WhatsApp</strong>
+            <p>Пришлите размеры или фото кухни, которая нравится.</p>
+            <a class="phone" href="tel:+79281124999">+7 (928) 112-49-99</a><br />
+            <a href="https://t.me/LEKSIS_MEBEL" target="_blank" rel="noopener" style="color: var(--accent); font-size: 0.9rem; font-weight: 600;">t.me/LEKSIS_MEBEL →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-flex">
+      <span>© Студия мебели «ЛЕКСИС» • С 2015 года • Ростов-на-Дону, Краснодар, ЛНР, ДНР</span>
+      <span>Светлый прототип сайта под стиль студии</span>
+    </div>
+  </footer>
+
+  <script>
+    let baseRate = 32000;
+    let typeName = 'Кухня на заказ';
+    let tierMult = 1;
+    let tierName = 'Комфорт';
+    let cityName = 'Ростов-на-Дону и область';
+
+    const lengthRange = document.getElementById('lengthRange');
+    const lengthVal = document.getElementById('lengthVal');
+    const estPrice = document.getElementById('estPrice');
+    const estSummary = document.getElementById('estSummary');
+    const quizForm = document.getElementById('quizForm');
+    const quizToast = document.getElementById('quizToast');
+
+    function recalc() {
+      const len = Number(lengthRange.value);
+      lengthVal.textContent = len.toFixed(1) + ' м';
+      const mid = Math.round((baseRate * len * tierMult) / 1000) * 1000;
+      const min = Math.round((mid * 0.9) / 1000) * 1000;
+      const max = Math.round((mid * 1.15) / 1000) * 1000;
+      estPrice.textContent = `${min.toLocaleString('ru-RU')} – ${max.toLocaleString('ru-RU')} ₽`;
+      estSummary.textContent = `${typeName} • ${len.toFixed(1)} м • ${tierName} • ${cityName}`;
+      return { min, max, len };
+    }
+
+    function bindPills(containerId, cb) {
+      const btns = document.querySelectorAll(`#${containerId} .pill`);
+      btns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          btns.forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          cb(btn);
+          recalc();
+        });
+      });
+    }
+
+    bindPills('typeGroup', (btn) => {
+      baseRate = Number(btn.dataset.base);
+      typeName = btn.textContent.trim();
+    });
+    bindPills('tierGroup', (btn) => {
+      tierMult = Number(btn.dataset.mult);
+      tierName = btn.textContent.split('(')[0].trim();
+    });
+    bindPills('cityGroup', (btn) => {
+      cityName = btn.textContent.trim();
+    });
+
+    lengthRange.addEventListener('input', recalc);
+    recalc();
+
+    quizForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('leadName').value.trim();
+      const phone = document.getElementById('leadPhone').value.trim();
+      const { min, max, len } = recalc();
+
+      quizToast.style.display = 'block';
+      quizToast.innerHTML = `Заявка для <b>${name}</b> (${min.toLocaleString('ru-RU')}–${max.toLocaleString('ru-RU')} ₽, ${len.toFixed(1)} м) готова к отправке в Telegram менеджеру! <a href="https://t.me/LEKSIS_MEBEL" target="_blank" style="text-decoration:underline;color:#065f46;font-weight:600;">Открыть t.me/LEKSIS_MEBEL</a>`;
+    });
+  </script>
+</body>
+</html>
